@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"planbcoding.vscode-react-refactor",
+		"bradlc.vscode-tailwindcss",
+		"christian-kohler.path-intellisense",
+		"eamodio.gitlens",
+		"formulahendry.auto-close-tag",
+		"formulahendry.auto-rename-tag",
+		"wayou.vscode-todo-highlight"
+	]
+}
