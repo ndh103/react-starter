@@ -23,8 +23,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-    }
+    },
+    "types": ["node"]
   },
-  "include": ["src"],
+  "include": ["src", "public/mockServiceWorker.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
