@@ -15,7 +15,13 @@ export default function EventsHome() {
 			.catch(console.error);
 	}, []);
 
-	const listItems = data.map((event: EventItem) => <li>{event.Name}</li>);
+	const listItems = data.map((event: EventItem) => (
+		<li key={event.id}>
+			<h1>{event.name}</h1>
+			<div>{event.content}</div>
+			<div>-----------</div>
+		</li>
+	));
 
 	return (
 		<div>

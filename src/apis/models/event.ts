@@ -1,3 +1,6 @@
 interface EventItem {
-	Name: string | undefined;
+	id: number;
+	name: string;
+	content: string;
+	eventDate: Date;
 }

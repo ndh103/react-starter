@@ -18,11 +18,9 @@ const queryClient = new QueryClient();
 
 // biome-ignore lint/style/noNonNullAssertion: we always has root element
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<QueryClientProvider client={queryClient}>
-			<RouterProvider router={mainRouter} />
+	<QueryClientProvider client={queryClient}>
+		<RouterProvider router={mainRouter} />
 
-			<ReactQueryDevtools initialIsOpen={false} />
-		</QueryClientProvider>
-	</React.StrictMode>,
+		<ReactQueryDevtools initialIsOpen={false} />
+	</QueryClientProvider>,
 );
