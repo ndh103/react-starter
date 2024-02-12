@@ -1,15 +1,11 @@
-import { getEventListAsync } from "@/apis/events.api";
-import { useQuery } from "@tanstack/react-query";
+import { useQueryGetEventListAsync } from "@/apis/events.api";
 
 export default function EventsHome() {
-	const { isPending, data } = useQuery({
-		queryKey: ["events"],
-		queryFn: () => getEventListAsync(),
-	});
+	const { isPending, data: events } = useQueryGetEventListAsync();
 
 	if (isPending) return "Loading...";
 
-	const listItems = data?.map((event: EventItem) => (
+	const listItems = events?.map((event: EventItem) => (
 		<li key={event.id}>
 			<h1>{event.name}</h1>
 			<div>{event.content}</div>

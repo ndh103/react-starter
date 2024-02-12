@@ -16,7 +16,7 @@ for (let i = 0; i < 100; i++) {
 
 export const handlers = [
 	http.get("/events", async () => {
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+		await new Promise((resolve) => setTimeout(resolve, 1500));
 
 		return HttpResponse.json(eventList);
 	}),
