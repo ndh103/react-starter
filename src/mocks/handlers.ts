@@ -1,10 +1,14 @@
-import { http } from "msw";
+import { HttpResponse, http } from "msw";
 
 export const handlers = [
 	http.get("/events", () => {
-		// Response resolver allows you to react to captured requests,
-		// respond with mock responses or passthrough requests entirely.
-		// For now, let's just print a message to the console.
-		console.log('Captured a "GET /posts" request');
+		return HttpResponse.json([
+			{
+				Name: "Test 101",
+			},
+			{
+				Name: "Test 102",
+			},
+		]);
 	}),
 ];
