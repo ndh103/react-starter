@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 function MainLayout() {
 	return (
-		<div className="antialiased bg-gray-50 dark:bg-gray-900">
+		<div className="antialiase">
 			<NavBar />
 			<AsideMenu />
 
