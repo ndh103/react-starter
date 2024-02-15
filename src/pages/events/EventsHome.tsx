@@ -38,7 +38,9 @@ export default function EventsHome() {
 
 	return (
 		<div>
-			<div>Event Home</div>
+			<h2 className="scroll-m-20 border-b pb-4 text-3xl font-semibold tracking-tight first:mt-0 ">
+				Event Home
+			</h2>
 			<DataTable columns={columns} data={events || []} />
 		</div>
 	);

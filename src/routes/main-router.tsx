@@ -1,4 +1,4 @@
-import EventsHome from "@/assets/events/EventsHome";
+import EventsHome from "@/pages/events/EventsHome";
 import MainLayout from "@/layouts/MainLayout";
 import AboutPage from "@/pages/about/AboutPage";
 import ErrorPage from "@/pages/errors/ErrorPage";
