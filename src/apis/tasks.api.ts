@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import httpClient from "./http-client";
 
-const useQueryGetEventListAsync = () =>
+const useQueryListTaskAsync = () =>
 	useQuery({
-		queryKey: ["events"],
-		queryFn: async (): Promise<EventItem[]> =>
-			await httpClient.get("/events").then((r) => r.data),
+		queryKey: ["tasks"],
+		queryFn: async (): Promise<TaskItem[]> =>
+			await httpClient.get("/tasks").then((r) => r.data),
 		staleTime: 1 * 1000,
 		refetchOnMount: true,
 		refetchOnWindowFocus: false,
 		refetchOnReconnect: false,
 	});
 
-export { useQueryGetEventListAsync };
+export { useQueryListTaskAsync };

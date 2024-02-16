@@ -1,6 +1,7 @@
-import OverviewMenuIcon from "@/assets/icons/overview-menu.svg?react";
-import DocMenuIcon from "@/assets/icons/doc-menu.svg?react";
+// import OverviewMenuIcon from "@/assets/icons/overview-menu.svg?react";
+// import DocMenuIcon from "@/assets/icons/doc-menu.svg?react";
 import { Link } from "react-router-dom";
+import { BookOpenText, ClipboardList } from "lucide-react";
 
 function AsideMenu() {
 	return (
@@ -9,15 +10,15 @@ function AsideMenu() {
 			aria-label="Sidenav"
 			id="drawer-navigation"
 		>
-			<div className="overflow-y-auto py-5 px-3 h-full bg-emerald-600 text-white">
+			<div className="overflow-y-auto py-5 px-3 h-full bg-stone-100">
 				<ul className="space-y-2">
 					<li>
 						<Link
-							to={"events"}
-							className="flex items-center p-2 text-base text-white font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
+							to={"tasks"}
+							className="flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
 						>
-							<OverviewMenuIcon className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
-							<span className="ml-3">Events</span>
+							<ClipboardList className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
+							<span className="ml-3">Tasks</span>
 						</Link>
 					</li>
 				</ul>
@@ -26,9 +27,9 @@ function AsideMenu() {
 					<li>
 						<Link
 							to={"about"}
-							className="flex items-center p-2 text-base text-white font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
+							className="flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
 						>
-							<DocMenuIcon className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
+							<BookOpenText className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
 							<span className="ml-3">About</span>
 						</Link>
 					</li>

@@ -1,9 +1,9 @@
-import { useQueryGetEventListAsync } from "@/apis/events.api";
+import { useQueryListTaskAsync } from "@/apis/tasks.api";
 import { DataTable } from "@/components/ui/data-table";
 import { ColumnDef } from "@tanstack/react-table";
-import EventsTableOptionsMenu from "./components/EventsTableOptionsMenu";
+import TableOptionsMenu from "./components/TableOptionsMenu";
 
-const columns: ColumnDef<EventItem>[] = [
+const columns: ColumnDef<TaskItem>[] = [
 	{
 		accessorKey: "name",
 		header: () => <div className="font-medium text-black">Name</div>,
@@ -16,21 +16,21 @@ const columns: ColumnDef<EventItem>[] = [
 		header: () => <div className="font-medium text-black">Content</div>,
 	},
 	{
-		accessorKey: "eventDate",
-		header: () => <div className="font-medium text-black">Event Date</div>,
+		accessorKey: "dueDate",
+		header: () => <div className="font-medium text-black">Due Date</div>,
 	},
 	{
 		id: "actions",
 		cell: ({ row }) => {
-			const eventItem = row.original;
+			const task = row.original;
 
-			return <EventsTableOptionsMenu item={eventItem} />;
+			return <TableOptionsMenu item={task} />;
 		},
 	},
 ];
 
-export default function EventsHome() {
-	const { isPending, isFetching, data: events } = useQueryGetEventListAsync();
+export default function TasksHome() {
+	const { isPending, isFetching, data: tasks } = useQueryListTaskAsync();
 
 	if (isPending) return "Fetching new data...";
 
@@ -39,9 +39,9 @@ export default function EventsHome() {
 	return (
 		<div>
 			<h2 className="scroll-m-20 border-b pb-4 text-3xl font-semibold tracking-tight first:mt-0 ">
-				Event Home
+				Tasks
 			</h2>
-			<DataTable columns={columns} data={events || []} />
+			<DataTable columns={columns} data={tasks || []} />
 		</div>
 	);
 }

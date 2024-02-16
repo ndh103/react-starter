@@ -1,4 +1,4 @@
-import EventsHome from "@/pages/events/EventsHome";
+import TasksHome from "@/pages/tasks/TasksHome";
 import MainLayout from "@/layouts/MainLayout";
 import AboutPage from "@/pages/about/AboutPage";
 import ErrorPage from "@/pages/errors/ErrorPage";
@@ -15,11 +15,11 @@ const mainRouter = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						loader: () => redirect("/events"),
+						loader: () => redirect("/tasks"),
 					},
 					{
-						path: "/events",
-						element: <EventsHome />,
+						path: "/tasks",
+						element: <TasksHome />,
 					},
 					{
 						path: "/about",

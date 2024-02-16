@@ -10,10 +10,10 @@ import {
 import { MoreHorizontal } from "lucide-react";
 
 interface DataTableProps {
-	item: EventItem;
+	item: TaskItem;
 }
 
-export default function EventsTableOptionsMenu({ item }: DataTableProps) {
+export default function TableOptionsMenu({ item }: DataTableProps) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>

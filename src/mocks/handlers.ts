@@ -1,23 +1,23 @@
 import { HttpResponse, http } from "msw";
 import { faker } from "@faker-js/faker";
 
-const eventList: EventItem[] = [];
+const tasks: TaskItem[] = [];
 
 for (let i = 0; i < 100; i++) {
-	const event = {
+	const task = {
 		id: i + 1,
 		name: faker.commerce.productName(),
 		content: faker.commerce.productDescription(),
-		eventDate: faker.date.anytime(),
-	} as EventItem;
+		dueDate: faker.date.anytime(),
+	} as TaskItem;
 
-	eventList.push(event);
+	tasks.push(task);
 }
 
 export const handlers = [
-	http.get("/events", async () => {
+	http.get("/tasks", async () => {
 		await new Promise((resolve) => setTimeout(resolve, 1500));
 
-		return HttpResponse.json(eventList);
+		return HttpResponse.json(tasks);
 	}),
 ];

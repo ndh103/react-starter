@@ -7,7 +7,7 @@
 - [] Add routing with default layout
 - [] Add API with TanStack Query
 - [] Mock API response with MSW
-- [] Build default layout with Event app example
+- [] Build default layout with Tasks Management app example
 - [] Integration with shadui/cn
 - [] Add story book
 - [] Add table compoents 

@@ -1,6 +1,6 @@
-type EventItem = {
+type TaskItem = {
 	id: number;
 	name: string;
 	content: string;
-	eventDate: Date;
+	dueDate: Date;
 };
