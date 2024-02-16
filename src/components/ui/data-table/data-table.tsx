@@ -4,6 +4,7 @@ import {
 	ColumnDef,
 	OnChangeFn,
 	PaginationState,
+	SortingState,
 	flexRender,
 	getCoreRowModel,
 	getPaginationRowModel,
@@ -24,8 +25,10 @@ interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
 	pagination: PaginationState;
+	sorting: SortingState;
 	pageCount: number;
 	loading: boolean;
+	onSortingChange: OnChangeFn<SortingState>;
 	onPaginationChange: OnChangeFn<PaginationState>;
 }
 
@@ -35,16 +38,21 @@ export function DataTable<TData, TValue>({
 	pagination,
 	pageCount,
 	loading,
+	sorting,
+	onSortingChange,
 	onPaginationChange,
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
 		columns,
 		manualPagination: true,
+		manualSorting: true,
 		onPaginationChange,
+		onSortingChange,
 		pageCount: pageCount,
 		state: {
 			pagination,
+			sorting,
 		},
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
@@ -59,7 +67,7 @@ export function DataTable<TData, TValue>({
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => {
 									return (
-										<TableHead key={header.id}>
+										<TableHead key={header.id} colSpan={header.colSpan}>
 											{header.isPlaceholder
 												? null
 												: flexRender(

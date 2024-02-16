@@ -3,9 +3,7 @@ import httpClient from "./http-client";
 
 const usePostTaskQuery = (queryTaskRequest: QueryTaskRequest) =>
 	useQuery({
-		queryKey: [
-			`tasks${queryTaskRequest.limit.toString()}${queryTaskRequest.offset.toString()}`,
-		],
+		queryKey: ["tasks", queryTaskRequest],
 		queryFn: async (): Promise<QueryTaskResponse> =>
 			await httpClient
 				.post("/tasks/query", queryTaskRequest)
