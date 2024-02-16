@@ -15,9 +15,18 @@ for (let i = 0; i < 100; i++) {
 }
 
 export const handlers = [
-	http.get("/tasks", async () => {
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+	http.post("/tasks/query", async ({ request }) => {
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 
-		return HttpResponse.json(tasks);
+		const query = (await request.json()) as QueryTaskRequest;
+
+		const queryResult = tasks.slice(query.offset).slice(0, query.limit);
+
+		const response: QueryTaskResponse = {
+			totalRecords: tasks.length,
+			tasks: queryResult,
+		};
+
+		return HttpResponse.json(response);
 	}),
 ];
