@@ -1,5 +1,8 @@
 import { HttpResponse, http } from "msw";
 import { faker } from "@faker-js/faker";
+import { TaskItem, TaskStatus } from "@/apis/types/task-item.type";
+import { QueryTaskRequest } from "@/apis/types/query-task-request";
+import { QueryTaskResponse } from "@/apis/types/query-task-response";
 
 const tasks: TaskItem[] = [];
 
@@ -9,6 +12,7 @@ for (let i = 0; i < 100; i++) {
 		name: faker.commerce.productName(),
 		content: faker.commerce.productDescription(),
 		dueDate: faker.date.anytime(),
+		status: faker.helpers.enumValue(TaskStatus),
 	} as TaskItem;
 
 	tasks.push(task);

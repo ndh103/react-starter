@@ -1,9 +1,25 @@
 // import OverviewMenuIcon from "@/assets/icons/overview-menu.svg?react";
 // import DocMenuIcon from "@/assets/icons/doc-menu.svg?react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BookOpenText, ClipboardList } from "lucide-react";
+import clsx from "clsx";
 
 function AsideMenu() {
+	const iconClasses = "w-5 h-5 transition duration-75";
+
+	const menuItems = [
+		{
+			to: "tasks",
+			text: "Tasks",
+			iconElement: <ClipboardList className={iconClasses} />,
+		},
+		{
+			to: "about",
+			text: "About",
+			iconElement: <BookOpenText className={iconClasses} />,
+		},
+	];
+
 	return (
 		<aside
 			className="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full border-r  pt-14 transition-transform md:translate-x-0"
@@ -12,27 +28,28 @@ function AsideMenu() {
 		>
 			<div className="overflow-y-auto py-5 px-3 h-full bg-stone-100">
 				<ul className="space-y-2">
-					<li>
-						<Link
-							to={"tasks"}
-							className="flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
-						>
-							<ClipboardList className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
-							<span className="ml-3">Tasks</span>
-						</Link>
-					</li>
-				</ul>
-
-				<ul className="pt-5 mt-5 space-y-2 border-t border-gray-200 ">
-					<li>
-						<Link
-							to={"about"}
-							className="flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-100 hover:text-gray-900 group"
-						>
-							<BookOpenText className="w-6 h-6 transition duration-75 group-hover:text-gray-900" />
-							<span className="ml-3">About</span>
-						</Link>
-					</li>
+					{menuItems.map((item) => {
+						return (
+							<li>
+								<NavLink
+									to={item.to}
+									className={({ isActive, isPending }) =>
+										clsx([
+											"flex items-center p-2 text-base font-medium rounded-lg group",
+											isActive && "bg-primary text-white",
+											isPending && "pending",
+											!isActive &&
+												!isPending &&
+												"hover:bg-stone-200 hover:text-primary",
+										])
+									}
+								>
+									{item.iconElement}
+									<span className="ml-3">{item.text}</span>
+								</NavLink>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 		</aside>

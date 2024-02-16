@@ -1,4 +1,4 @@
-type QueryTaskRequest = {
+export type QueryTaskRequest = {
 	limit: number;
 	offset: number;
 	sort: {

@@ -5,6 +5,25 @@ import TableOptionsMenu from "./components/TableOptionsMenu";
 import { usePagination } from "@/components/ui/data-table/use-pagination";
 import { useSorting } from "@/components/ui/data-table/use-sorting.hook";
 import { DataTableColumnHeader } from "@/components/ui/data-table/data-table-column-header";
+import { Badge } from "@/components/ui/badge";
+import { TaskItem, TaskStatus } from "@/apis/types/task-item.type";
+import clsx from "clsx";
+
+function getTaskStatusDisplayText(taskStatus: TaskStatus) {
+	switch (taskStatus) {
+		case TaskStatus.NotStarted:
+			return "Not Started";
+
+		case TaskStatus.InProgress:
+			return "In-Progress";
+
+		case TaskStatus.Done:
+			return "Done";
+
+		default:
+			return "";
+	}
+}
 
 const columns: ColumnDef<TaskItem>[] = [
 	{
@@ -29,6 +48,28 @@ const columns: ColumnDef<TaskItem>[] = [
 		header: ({ column }) => (
 			<DataTableColumnHeader column={column} title="Due Date" />
 		),
+		enableSorting: true,
+	},
+	{
+		accessorKey: "status",
+		header: ({ column }) => (
+			<DataTableColumnHeader column={column} title="Status" />
+		),
+		cell: ({ row }) => {
+			const status: number = row.getValue("status");
+			return (
+				<Badge
+					variant="outline"
+					className={clsx({
+						"bg-primary text-primary-foreground": status === TaskStatus.Done,
+						"bg-green-400": status === TaskStatus.InProgress,
+						"bg-gray-300": status === TaskStatus.NotStarted,
+					})}
+				>
+					{getTaskStatusDisplayText(status)}
+				</Badge>
+			);
+		},
 		enableSorting: true,
 	},
 	{
