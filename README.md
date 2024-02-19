@@ -3,12 +3,24 @@
 - https://www.robinwieruch.de/react-starter/
 - https://webkul.com/blog/tailwind-css-material-ui-with-next-js/
 
-# TODOs
-- [] Add routing with default layout
-- [] Add API with TanStack Query
-- [] Mock API response with MSW
-- [] Build default layout with Tasks Management app example
-- [] Integration with shadui/cn
-- [] Add story book
-- [] Add table compoents 
-- [] Add file upload components
+# Tech stack
+- Build project with Vite
+  - [Vite](https://vitejs.dev/) 
+- ROUTING using React Router
+  - [React Router](https://reactrouter.com/en/main)
+- DATA FETCHING library using TanStack Query
+  - [TanStack Query](https://tanstack.com/query/latest)
+- CSS Styling using Tailwind
+  - Utility-First-CSS [Tailwind](https://reactrouter.com/en/main)
+- UI Libary
+  - [shadcn/ui](https://ui.shadcn.com/)
+  - Using `Default` style from shadcn
+  - Icon library from `lucide-react`
+  - Shadcn/ui theme explorer
+    - https://ui.jln.dev/
+  - `tailwindcss-animate`
+- FORM
+  - [React Hook Form](https://react-hook-form.com/)
+    - with zod integration for validation
+
+# Project Structure
